@@ -255,39 +255,39 @@ if (count_mex_binaries () < length (targets64))
 end
 
 % Add SeDuMi to search path, if not forbidden by "-nopath".
-if (~no_path)
-  disp (line_sep);
-  disp ('Adding SeDuMi to the search path:');
+% if (~no_path)
+%   disp (line_sep);
+%   disp ('Adding SeDuMi to the search path:');
+% 
+%   search_path_cstr = regexp (path (), pathsep (), 'split');
+%   if (ispc ())  % MS Windows is not case-sensitive.
+%     is_on_search_path = @(x) any (strcmpi (x, search_path_cstr));
+%   else
+%     is_on_search_path = @(x) any (strcmp (x, search_path_cstr));
+%   end
 
-  search_path_cstr = regexp (path (), pathsep (), 'split');
-  if (ispc ())  % MS Windows is not case-sensitive.
-    is_on_search_path = @(x) any (strcmpi (x, search_path_cstr));
-  else
-    is_on_search_path = @(x) any (strcmp (x, search_path_cstr));
-  end
-
-  fprintf ('   Base directory...       ');
-  if (~is_on_search_path (sedumi_path))
-    addpath (sedumi_path);
-    fprintf ('added.\n');
-  else
-    fprintf ('already there.\n');
-  end
-  fprintf ('   Conversion directory... ');
-  if (~is_on_search_path (fullfile (sedumi_path, 'conversion')))
-    addpath (fullfile (sedumi_path, 'conversion'));
-    fprintf ('added.\n');
-  else
-    fprintf ('already there.\n');
-  end
-  fprintf ('   Examples directory...   ');
-  if (~is_on_search_path (fullfile (sedumi_path, 'examples')))
-    addpath (fullfile (sedumi_path, 'examples'));
-    fprintf ('added.\n');
-  else
-    fprintf ('already there.\n');
-  end
-end
+%   fprintf ('   Base directory...       ');
+%   if (~is_on_search_path (sedumi_path))
+%     addpath (sedumi_path);
+%     fprintf ('added.\n');
+%   else
+%     fprintf ('already there.\n');
+%   end
+%   fprintf ('   Conversion directory... ');
+%   if (~is_on_search_path (fullfile (sedumi_path, 'conversion')))
+%     addpath (fullfile (sedumi_path, 'conversion'));
+%     fprintf ('added.\n');
+%   else
+%     fprintf ('already there.\n');
+%   end
+%   fprintf ('   Examples directory...   ');
+%   if (~is_on_search_path (fullfile (sedumi_path, 'examples')))
+%     addpath (fullfile (sedumi_path, 'examples'));
+%     fprintf ('added.\n');
+%   else
+%     fprintf ('already there.\n');
+%   end
+% end
 
 disp (line_sep);
 disp ('SeDuMi has been successfully installed.');
